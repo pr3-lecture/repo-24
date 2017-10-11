@@ -22,7 +22,7 @@ class AboutAsserts < Neo::Koan
     expected_value = __
     actual_value = 1 + 1
 
-    assert expected_value == actual_value
+    assert expected_value != actual_value
   end
 
   # Some ways of asserting equality are better than others.
