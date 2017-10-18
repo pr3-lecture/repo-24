@@ -36,7 +36,7 @@ class AboutArrays < Neo::Koan
 
   def test_slicing_arrays
     array = [:peanut, :butter, :and, :jelly]
-
+    puts("How are sliced arrays returned?", array[0,1])
     assert_equal __, array[0,1]
     assert_equal __, array[0,2]
     assert_equal __, array[2,2]
