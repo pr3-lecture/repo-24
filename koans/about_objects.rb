@@ -41,14 +41,26 @@ class AboutObjects < Neo::Koan
 
     # THINK ABOUT IT:
     # What pattern do the object IDs for small integers follow?
-    # The pattern used to set the ID for a Number object is 2n+1, where n = the number 
+    # The pattern used to set the ID for a Number object is 2n+1, where n = the number
   end
 
   def test_clone_creates_a_different_object
     obj = Object.new
     copy = obj.clone
+    org = String.new;
+    cloned = org.clone
+    puts("OBJ [TYPE: OBJECT] as a String", obj.to_s)
+    puts("COPY [Clone of OBJ] as a String", copy.to_s)
+    puts("ORG [TYPE: STRING] as a String", org.to_s)
+    puts("CLONED [Clone of ORG] as a String", cloned.to_s)
+    puts("Org and Clone have the same content. So are they considered equal?", org == cloned)
+    puts("Then are they NOT equal?", org != cloned)
 
-    assert_equal __, obj           != copy
-    assert_equal __, obj.object_id != copy.object_id
+    assert_equal true, obj           != copy
+    #true because the content of the super (duper) class Object, when output with
+    #to_s returns its memory ID, which is different for the original and the clone.
+    # HOWEVER, any child of Object and its clone would come out as false here as their content
+    # would be compared and resolved to equal.
+    assert_equal true, obj.object_id != copy.object_id #true as the the clone is a deep-clone and hence has a different ID
   end
 end
