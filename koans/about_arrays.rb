@@ -36,14 +36,17 @@ class AboutArrays < Neo::Koan
 
   def test_slicing_arrays
     array = [:peanut, :butter, :and, :jelly]
-    puts("How are sliced arrays returned?", array[0,1])
-    assert_equal __, array[0,1]
-    assert_equal __, array[0,2]
-    assert_equal __, array[2,2]
-    assert_equal __, array[2,20]
-    assert_equal __, array[4,0]
-    assert_equal __, array[4,100]
-    assert_equal __, array[5,0]
+    # Slicing returns an array in the following format [from index, amount of positions to count up to]
+    # If there are too many steps the result only contains actual elements no nils etc.
+    assert_equal [:peanut], array[0,1]
+    assert_equal [:peanut, :butter], array[0,2]
+    assert_equal [:and, :jelly], array[2,2]
+    assert_equal [:and, :jelly], array[2,20]
+    assert_equal [], array[4,0]
+    #This returns an empty array because the element between 3 and 4 can be given back,
+    # hence 4 HAS TO EXIST and return an empty array although there is only nil in that position
+    assert_equal [], array[4,100] #this is valid (see above)
+    assert_equal nil, array[5,0] #Returns nil as position 5 does not exist.
   end
 
   def test_arrays_and_ranges
