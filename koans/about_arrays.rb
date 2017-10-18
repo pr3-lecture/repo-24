@@ -51,7 +51,7 @@ class AboutArrays < Neo::Koan
 
   def test_arrays_and_ranges
     assert_equal Range, (1..5).class
-    assert_not_equal [1,2,3,4,5], (1..5) #Makes sense
+    assert_not_equal [1,2,3,4,5], (1..5) #Makes sense because it's a range
     assert_equal [1,2,3,4,5], (1..5).to_a #.. counts all the way to the final number
     assert_equal [1,2,3,4], (1...5).to_a #... counts upto, but not including, the final number
   end
@@ -59,9 +59,9 @@ class AboutArrays < Neo::Koan
   def test_slicing_with_ranges
     array = [:peanut, :butter, :and, :jelly]
 
-    assert_equal __, array[0..2]
-    assert_equal __, array[0...2]
-    assert_equal __, array[2..-1]
+    assert_equal [:peanut, :butter, :and], array[0..2]
+    assert_equal [:peanut, :butter], array[0...2]
+    assert_equal [:and, :jelly], array[2..-1] #Still counts forwards to the reversed index
   end
 
   def test_pushing_and_popping_arrays
