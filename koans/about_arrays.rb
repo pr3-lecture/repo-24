@@ -24,13 +24,14 @@ class AboutArrays < Neo::Koan
 
   def test_accessing_array_elements
     array = [:peanut, :butter, :and, :jelly]
-
-    assert_equal __, array[0]
-    assert_equal __, array.first
-    assert_equal __, array[3]
-    assert_equal __, array.last
-    assert_equal __, array[-1]
-    assert_equal __, array[-3]
+    #elements are symbols
+    #hence symbols will be returned
+    assert_equal :peanut, array[0]
+    assert_equal :peanut, array.first
+    assert_equal :jelly, array[3]
+    assert_equal :jelly, array.last
+    assert_equal :jelly, array[-1] #Reverse with -1 being the last element as -0 does not exist
+    assert_equal :butter, array[-3] #Hence this will return the second element as the first would be -4
   end
 
   def test_slicing_arrays
