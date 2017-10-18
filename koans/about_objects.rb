@@ -7,6 +7,7 @@ class AboutObjects < Neo::Koan
     assert_equal true, "string".is_a?(Object)
     assert_equal true, nil.is_a?(Object)
     assert_equal true, Object.is_a?(Object)
+    #It's raining the truth as everything in Ruby is an object.
   end
 
   def test_objects_can_be_converted_to_strings
@@ -21,7 +22,8 @@ class AboutObjects < Neo::Koan
 
   def test_every_object_has_an_id
     obj = Object.new
-    assert_equal __, obj.object_id.class
+    assert_equal Fixnum, obj.object_id.class
+    #The an object's ID is of the class-type Fixnum
   end
 
   def test_every_object_has_different_id
