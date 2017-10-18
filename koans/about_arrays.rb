@@ -77,13 +77,12 @@ class AboutArrays < Neo::Koan
 
   def test_shifting_arrays
     array = [1,2]
-    array.unshift(:first)
+    array.unshift(:first) #unshift adds the Symbol to the beginning of the array
+    assert_equal [:first, 1, 2], array
 
-    assert_equal __, array
-
-    shifted_value = array.shift
-    assert_equal __, shifted_value
-    assert_equal __, array
+    shifted_value = array.shift # shift pops out the first value of the array
+    assert_equal :first, shifted_value
+    assert_equal [1,2], array
   end
 
 end
