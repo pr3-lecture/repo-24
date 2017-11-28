@@ -19,8 +19,8 @@ require 'about_constants'
 require 'about_control_statements'
 require 'about_true_and_false'
 require 'about_triangle_project'
-require 'about_exceptions'
-require 'about_triangle_project_2'
+# require 'about_exceptions' EXLUDED AS PER INSTRUCTIONS
+# require 'about_triangle_project_2' THIS REQUIRES KNOWLEDGE ABOUT EXCEPTIONS AS WELL
 require 'about_iteration'
 require 'about_blocks'
 require 'about_sandwich_code'
